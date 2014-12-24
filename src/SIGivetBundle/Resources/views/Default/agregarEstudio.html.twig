@@ -1,0 +1,378 @@
+{% extends 'SIGivetBundle::menu.html.twig' %}
+{%  block title %}
+SIGivet
+{% endblock %}
+
+{% block miga %}
+<ul class="breadcrumb trim">
+    <li><a href="#">Inicio</a> <span class="divider">/</span></li>
+    <li><a href="#">Proyecto</a> <span class="divider">/</span></li>
+    <li><a href="#">Finca</a> <span class="divider">/</span></li>
+    <li><a href="#">Agregar Finca</a> <span class="divider">/</span></li>
+    <li class="active">Agregar Estudio</li>
+</ul>
+{% endblock %}
+
+{% block contenido %}
+<div class="well trim whites">
+	<h3 class="align-center"><strong>Información Del Estudio</strong></h3>
+    <div class="tabbable">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab"><strong class="color">Datos Básicos</strong></a></li>
+            <li><a href="#tab2" data-toggle="tab"><strong class="color">Manejo Reproductivo</strong></a></li>
+            <li><a href="#tab3" data-toggle="tab"><strong class="color">Sintomas</strong></a></li>
+            <li><a href="#tab4" data-toggle="tab"><strong class="color">Suplemento Nutricional</strong></a></li>
+            <li><a href="#tab5" data-toggle="tab"><strong class="color">Otros</strong></a></li>
+        </ul>
+        <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+            <div style="background:white" class="well">
+                <div class="row">
+                    <div class="span4"><strong>Responsable*</strong></div>
+                    <div class="span4">
+                        <select style="width:220px" required="required">
+                            <option>Seleccionar</option>
+                        </select>
+                        <i class="fa fa-plus-square fa-2x"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span4"><strong>Raza predominante*</strong></div>
+                    <div class="span4">
+                        <select style="width:220px" required="required">
+                            <option>Seleccionar</option>
+                        </select>
+                        <i class="fa fa-plus-square fa-2x"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span4"><strong>Registro de producción*</strong></div>
+                    <div class="span4">
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                            <span class="metro-radio">SI</span>
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                            <span class="metro-radio">NO</span>
+                        </label>
+                    </div>
+                </div>
+                <br></br>
+                <div class="row">
+                    <div class="span4"><strong>Botiquín veterinario*</strong></div>
+                    <div class="span4">
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                            <span class="metro-radio">SI</span>
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                            <span class="metro-radio">NO</span>
+                        </label>
+                    </div>
+                </div>
+                <br></br>
+                <div class="row">
+                    <div class="span4"><strong>Productos agricolas*</strong></div>
+                    <div class="span4">
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                            <span class="metro-radio">SI</span>
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                            <span class="metro-radio">NO</span>
+                        </label>
+                    </div>
+                </div>
+                <br></br>
+                <div class="row">
+                    <div class="span4"><strong>Asistencia técnica*</strong></div>
+                    <div class="span4">
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                            <span class="metro-radio">SI</span>
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                            <span class="metro-radio">NO</span>
+                        </label>
+                    </div>
+                </div>
+                <br></br>
+                <div class="pull-left">
+                    <label class="text-info">(*) campos obligatorios</label>
+                </div>
+                <br></br>
+            </div>
+            <div class="row">
+                <div class="pull-right"><button class="btn btn-primary" type="button">Siguiente <i class="fa fa-arrow-right"></i></button></div>
+            </div>
+        </div>
+       <div class="tab-pane" id="tab2">
+            <div style="background:white"class="well">
+                <div class="row">
+                    <div style="background:white" class="span3 well">
+                        <h3 class="margen">Agregar Parámetro</h3>
+                        <div class="row margen">
+                            <div class="span4 margen"><strong>Manejo Reproductivo*</strong></div>
+                            <div class="span4">
+                                <select style="width:200px">
+                                    <option>Seleccionar</option>
+                                </select>
+                                <i class="fa fa-plus-square fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="row margen">
+                            <div class="span4"><button class="btn btn-success margen" type="button"><i class="fa fa-floppy-o"></i> Guardar</button></div>
+                            <div class="span4"><label class="text-info"><small>(*) campos obligatorios</small></label></div>
+                        </div>
+                    </div>
+                    <div class="span7">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th><strong>Manejo Reproductivo</strong></th>
+                                <th><strong>Opciones</strong></th>
+                            </tr>
+                            <tbody class="tabla">
+                            <tr  style="cursor:pointer;">
+                                <td id=""></td>
+                                <td id=""></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="pagination pagination-centered">
+                        <ul class="pager">
+                            <li class="previous"><a href="#"></a></li>
+                            <li class="next"><a href="#"></a></li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="pull-left"><button style="width:140px" class="btn btn-primary" type="button"><i class="fa fa-arrow-left"></i> Anterior</button></div>
+                <div class="pull-right"><button class="btn btn-primary" type="button">Siguiente <i class="fa fa-arrow-right"></i></button></div>
+            </div>
+       </div>
+       <div class="tab-pane" id="tab3">
+            <div style="background:white" class="well">
+                <div class="row">
+                    <div style="background:white" class="span3 well">
+                        <h3 class="margen">Agregar Sintoma</h3>
+                        <div class="row">
+                            <div class="span4"><strong>Sintoma*</strong></div>
+                            <div class="span4">
+                                <select style="width:206px">
+                                    <option>Seleccionar</option>
+                                </select>
+                                <i class="fa fa-plus-square fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span4"><strong>Cantidad año*</strong></div>
+                            <div class="span4">
+                                <input type="number" min="1" required="required" placeholder="Cantidad"></input>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span4"><strong>Disposición feto*</strong></div>
+                            <div class="span4">
+                                <select style="width:206px">
+                                    <option>Seleccionar</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span4"><button class="btn btn-success" type="button"><i class="fa fa-floppy-o"></i> Guardar</button></div>
+                            <div class="span4"><label class="text-info"><small>(*) campos obligatorios</small></label></div>
+                        </div>
+                    </div>
+                    <div class="span7">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th><strong>Sintoma</strong></th>
+                                <th><strong>Cantidad al año</strong></th>
+                                <th><strong>Opciones</strong></th>
+                            </tr>
+                            <tbody class="tabla">
+                            <tr  style="cursor:pointer;">
+                                <td id=""></td>
+                                <td id=""></td>
+                                <td id=""></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="pagination pagination-centered">
+                        <ul class="pager">
+                            <li class="previous"><a href="#"></a></li>
+                            <li class="next"><a href="#"></a></li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="pull-left"><button style="width:140px" class="btn btn-primary" type="button"><i class="fa fa-arrow-left"></i> Anterior</button></div>
+                <div class="pull-right"><button class="btn btn-primary" type="button">Siguiente <i class="fa fa-arrow-right"></i></button></div>
+            </div>
+       </div>
+       <div class="tab-pane" id="tab4">
+            <div style="background:white" class="well">
+                <div class="row">
+                    <div style="background:white" class="span3 well">
+                        <h3 class="margen">Agregar Suplemento</h3>
+                        <div class="row">
+                            <div class="span4 margen"><strong>Suplemento Nutricional*</strong></div>
+                            <div class="span4">
+                                <select style="width:200px">
+                                    <option>Seleccionar</option>
+                                </select>
+                                <i class="fa fa-plus-square fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="row margen">
+                            <div class="span4"><button class="btn btn-success" type="button"><i class="fa fa-floppy-o"></i> Guardar</button></div>
+                            <div class="span4"><label class="text-info"><small>(*) campos obligatorios</small></label></div>
+                        </div>
+                    </div>
+                    <div class="span7">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th><strong>Suplemento Nutricional</strong></th>
+                                <th><strong>Opciones</strong></th>
+                            </tr>
+                            <tbody class="tabla">
+                            <tr  style="cursor:pointer;">
+                                <td id=""></td>
+                                <td id=""></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="pagination pagination-centered">
+                        <ul class="pager">
+                            <li class="previous"><a href="#"></a></li>
+                            <li class="next"><a href="#"></a></li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="pull-left"><button style="width:140px" class="btn btn-primary" type="button"><i class="fa fa-arrow-left"></i> Anterior</button></div>
+                <div class="pull-right"><button class="btn btn-primary" type="button">Siguiente <i class="fa fa-arrow-right"></i></button></div>
+            </div>
+       </div>
+       <div class="tab-pane" id="tab5">
+            <div style="background:white" class="well">
+                <div class="row margen">
+                    <div class="span4 margen"><strong>Comparte reproductor</strong></div>
+                    <div class="span4 margen">
+                         <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                            <span class="metro-radio">SI</span>
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                            <span class="metro-radio">NO</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row margen">
+                    <div class="span4 margen"><strong>Vacas por toro</strong></div>
+                    <div class="span4 margen">
+                        <input type="number" required="required" min="1" placeholder="Cantidad"></input>
+                    </div>
+                </div>
+                <div class="row margen">
+                    <div class="span4 margen"><strong>Almacen de concentrado</strong></div>
+                    <div class="span4 margen">
+                        <select style="width:206px">
+                            <option>Seleccionar</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row margen">
+                    <div class="span4 margen"><strong>Disposición animal muerto</strong></div>
+                    <div class="span4 margen">
+                        <select style="width:206px">
+                            <option>Seleccionar</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row margen">
+                    <div class="span4 margen"><strong>Tipo ordeño</strong></div>
+                    <div class="span4 margen">
+                        <select style="width:206px">
+                            <option>Seleccionar</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row margen">
+                    <div class="span4 margen"><strong>Control de roedores</strong></div>
+                    <div class="span4 margen">
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                            <span class="metro-radio">SI</span>
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                            <span class="metro-radio">NO</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row margen">
+                    <div class="span4 margen"><strong>Animales certificados</strong></div>
+                    <div class="span4 margen">
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                            <span class="metro-radio">SI</span>
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                            <span class="metro-radio">NO</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row margen">
+                    <div class="span4 margen"><strong>Humedad en alimentos</strong></div>
+                    <div class="span4 margen">
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                            <span class="metro-radio">SI</span>
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                            <span class="metro-radio">NO</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row margen">
+                    <div class="span4 margen"><strong>Control ectoparasitos</strong></div>
+                    <div class="span4 margen">
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                            <span class="metro-radio">SI</span>
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                            <span class="metro-radio">NO</span>
+                        </label>
+                    </div>
+                </div>
+                <br></br>
+                <div class="pull-left">
+                    <label class="text-info">(*) campos obligatorios</label>
+                </div> 
+                <br></br>
+            </div>
+            <div class="row">
+                <div class="pull-left"><button style="width:140px" class="btn btn-primary" type="button"><i class="fa fa-arrow-left"></i> Anterior</button></div>
+                <div class="pull-right"><button class="btn btn-primary" type="button">Terminar <i class="fa fa-file-text-o"></i></button></div>
+            </div>
+       </div>
+     </div>
+   </div>	
+</div>
+{% endblock %}

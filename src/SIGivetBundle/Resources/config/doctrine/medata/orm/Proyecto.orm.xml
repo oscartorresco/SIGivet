@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Proyecto" table="proyecto">
+    <indexes>
+      <index name="r51_fk" columns="id_tipo_proyecto"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="proyecto_pk" columns="id_proyecto"/>
+    </unique-constraints>
+    <id name="idProyecto" type="integer" column="id_proyecto">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="fechaProyecto" type="date" column="fecha_proyecto" nullable="false"/>
+    <field name="objetivoProyecto" type="string" column="objetivo_proyecto" length="1024" nullable="false"/>
+    <field name="estadoProyecto" type="boolean" column="estado_proyecto" nullable="false"/>
+    <many-to-one field="idTipoProyecto" target-entity="TipoProyecto">
+      <join-columns>
+        <join-column name="id_tipo_proyecto" referenced-column-name="id_tipo_proyecto"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

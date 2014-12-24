@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Raza" table="raza">
+    <indexes>
+      <index name="r23_fk" columns="id_especie"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="raza_pk" columns="id_raza"/>
+    </unique-constraints>
+    <id name="idRaza" type="integer" column="id_raza">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreRaza" type="string" column="nombre_raza" length="30" nullable="false"/>
+    <field name="estadoRaza" type="boolean" column="estado_raza" nullable="false"/>
+    <many-to-one field="idEspecie" target-entity="Especie">
+      <join-columns>
+        <join-column name="id_especie" referenced-column-name="id_especie"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idClasificacion" target-entity="Clasificacion" mapped-by="idRaza"/>
+  </entity>
+</doctrine-mapping>

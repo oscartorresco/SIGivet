@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Variable" table="variable">
+    <indexes>
+      <index name="r35_fk" columns="id_categoria"/>
+    </indexes>
+    <id name="idVariable" type="integer" column="id_variable">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreVariable" type="string" column="nombre_variable" length="50" nullable="false"/>
+    <field name="estadoVariable" type="boolean" column="estado_variable" nullable="false"/>
+    <many-to-one field="idCategoria" target-entity="Categoria">
+      <join-columns>
+        <join-column name="id_categoria" referenced-column-name="id_categoria"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idRegla" target-entity="Regla" inversed-by="idVariable">
+      <join-table name="resultado_regla">
+        <join-columns>
+          <join-column name="id_variable" referenced-column-name="id_variable"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_regla" referenced-column-name="id_regla"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ResultadoPersona" table="resultado_persona">
+    <indexes>
+      <index name="r48_fk" columns="id_estudio"/>
+      <index name="r60_fk" columns="id_variable"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="resultado_persona_pk" columns="id_persona,id_estudio,id_variable"/>
+    </unique-constraints>
+    <id name="idPersona" type="integer" column="id_persona"/>
+    <id name="idEstudio" association-key="true"/>
+    <id name="idVariable" association-key="true"/>
+    <field name="resultadoCualitativo" type="integer" column="resultado_cualitativo" nullable="true"/>
+    <field name="resultadoCuantitativo" type="decimal" column="resultado_cuantitativo" precision="10" scale="0" nullable="true"/>
+    <one-to-one field="idVariable" target-entity="Variable">
+      <join-columns>
+        <join-column name="id_variable" referenced-column-name="id_variable"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="idEstudio" target-entity="Estudio">
+      <join-columns>
+        <join-column name="id_estudio" referenced-column-name="id_estudio"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

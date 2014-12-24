@@ -1,0 +1,64 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Raza
+ *
+ * @ORM\Table(name="raza", uniqueConstraints={@ORM\UniqueConstraint(name="raza_pk", columns={"id_raza"})}, indexes={@ORM\Index(name="r23_fk", columns={"id_especie"})})
+ * @ORM\Entity
+ */
+class Raza
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_raza", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="raza_id_raza_seq", allocationSize=1, initialValue=1)
+     */
+    private $idRaza;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_raza", type="string", length=30, nullable=false)
+     */
+    private $nombreRaza;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estado_raza", type="boolean", nullable=false)
+     */
+    private $estadoRaza;
+
+    /**
+     * @var \Especie
+     *
+     * @ORM\ManyToOne(targetEntity="Especie")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_especie", referencedColumnName="id_especie")
+     * })
+     */
+    private $idEspecie;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Clasificacion", mappedBy="idRaza")
+     */
+    private $idClasificacion;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idClasificacion = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

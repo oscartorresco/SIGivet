@@ -1,0 +1,55 @@
+
+.degradado{
+	background-color: #080221;
+    /* Chrome & Safari */
+    background-image:
+    -webkit-linear-gradient(0deg, transparent 10%, rgba(0, 0, 0, 0.1) 10% ),
+    -webkit-linear-gradient(0deg, transparent 20%, rgba(0, 0, 0, 0.1) 20% ),
+    -webkit-linear-gradient(0deg, transparent 30%, rgba(0, 0, 0, 0.1) 30% ),
+    -webkit-linear-gradient(0deg, transparent 40%, rgba(0, 0, 0, 0.1) 40% ),
+    -webkit-linear-gradient(0deg, transparent 50%, rgba(0, 0, 0, 0.1) 50% ),
+    -webkit-linear-gradient(0deg, transparent 60%, rgba(0, 0, 0, 0.1) 60% ),
+    -webkit-linear-gradient(0deg, transparent 70%, rgba(0, 0, 0, 0.1) 70% ),
+    -webkit-linear-gradient(0deg, transparent 80%, rgba(0, 0, 0, 0.1) 80% ),
+    -webkit-linear-gradient(0deg, transparent 90%, rgba(0, 0, 0, 0.1) 90% ),
+    -webkit-linear-gradient(0deg, transparent 100%, rgba(0, 0, 0, 0.1) 100% );
+}
+.trim{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tamano{
+     width: 1100px;
+}
+.color{
+    color: #808080;
+}
+
+.whites{
+    background-color: white;
+}
+
+.white{
+    color: white; 
+}
+
+.hand:hover{
+    color: white;
+}
+
+.light:hover{
+    color: #20608e !important;
+}
+
+.margen{
+    margin-bottom: 6px;
+}
+.vertical{
+    position: absolute;
+    top: 13px;
+}
+.horizontal{
+    margin-left: 50px;
+}

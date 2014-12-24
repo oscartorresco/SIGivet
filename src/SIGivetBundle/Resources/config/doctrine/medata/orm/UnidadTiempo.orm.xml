@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="UnidadTiempo" table="unidad_tiempo">
+    <unique-constraints>
+      <unique-constraint name="unidad_tiempo_pk" columns="id_unidad"/>
+    </unique-constraints>
+    <id name="idUnidad" type="integer" column="id_unidad">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreUnidad" type="string" column="nombre_unidad" length="20" nullable="false"/>
+    <field name="estadoUnidad" type="boolean" column="estado_unidad" nullable="false"/>
+  </entity>
+</doctrine-mapping>

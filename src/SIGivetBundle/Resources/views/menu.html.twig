@@ -1,0 +1,67 @@
+{% extends 'SIGivetBundle::layout.html.twig' %}
+{%  block title %}
+SIGivet
+{% endblock %}
+{% block superior %}
+<div  class="navbar">
+	<img class="pull-left vertical" width="50" height="50" src="{{ asset('bundles/sigivet/images/logo.png') }}"><h3 class="pull-left horizontal"><strong class="muted hand white">SIGivet</strong></h3>
+	<div class="dropdown pull-right">
+	<div style="width:50px" class="span2">
+		<i class="fa fa-question-circle fa-1x muted hand" style="cursor:pointer"></i>
+	</div>
+	<i class="dropdown-toggle hand" id="dLabel" role="button" data-toggle="dropdown" style="cursor:pointer" href="">
+       <i class="fa fa-user muted hand"><strong class="muted hand"> Administrador <span class="caret muted hand"></span></i></strong>
+    </i>
+    <ul class="dropdown-menu">
+    	<li role="presentacion">
+    		<a role="menuitem" tabindex="-1" href=""><i class="fa fa-user"></i> Perfil</a>
+    	</li>
+    	<li role="presentacion">
+    		<a role="menuitem" tabindex="-1" href=""><i class="fa fa-times-circle"></i> Cerrar sesión</a>
+    	</li>
+    </ul> 
+	</div>
+</div>
+{% endblock %}
+{% block modulo %}
+<div class="container-fluid well trim">
+	<div class="row-fluid">
+		<div class="dropdown span1 light">
+			<i class="fa fa-user fa-2x align-center dropdown-toggle" style="cursor:pointer"data-toggle="dropdown"><h5><strong>Admin</strong></h5></i>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li role="dropdown-submenu">
+					<a role="menuitem" tabindex="-1" href=""><i class="fa fa-folder-open"></i> Proyectos</a>
+				</li>
+				<li role="dropdown-submenu">
+					<a role="menuitem" tabindex="-1" href=""><i class="fa fa-users"></i> Usuarios</a>
+				</li>
+				<li role="dropdown-submenu">
+					<a role="menuitem" tabindex="-1" href=""><i class="fa fa-cog"></i> Configuración</a>
+				</li>
+    		</ul>
+		</div>
+		<div class="dropdown span1 light">
+			<i class="fa fa-file-text-o fa-2x align-center dropdown-toggle" style="cursor:pointer" data-toggle="dropdown"><h5><strong> Análisis </strong></h5></i>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li role="dropdown-submenu">
+					<a role="menuitem" tabindex="-1" href=""><i class="fa fa-list"></i> Historial</a>
+				</li>
+				<li role="dropdown-submenu">
+					<a role="menuitem" tabindex="-1" href=""><i class="fa fa-play-circle-o"></i> Analizar</a>
+				</li>
+    		</ul>
+		</div>
+		<div class="span1 light">
+			<i class="fa fa-globe fa-2x align-center" style="cursor:pointer"><h5><strong>Geografía</strong></h5></i>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block miga %}
+
+{% endblock %}
+
+{% block contenido %}
+
+{% endblock %}

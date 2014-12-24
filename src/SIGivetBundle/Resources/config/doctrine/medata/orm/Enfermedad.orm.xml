@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Enfermedad" table="enfermedad">
+    <unique-constraints>
+      <unique-constraint name="enfermedad_pk" columns="id_enfermedad"/>
+    </unique-constraints>
+    <id name="idEnfermedad" type="bigint" column="id_enfermedad">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreEnfermedad" type="string" column="nombre_enfermedad" length="50" nullable="false"/>
+    <field name="tieneVacuna" type="boolean" column="tiene_vacuna" nullable="false"/>
+    <field name="estadoEnfermedad" type="boolean" column="estado_enfermedad" nullable="false"/>
+    <many-to-many field="idFinca" target-entity="Finca" inversed-by="idEnfermedad">
+      <join-table name="muestra">
+        <join-columns>
+          <join-column name="id_enfermedad" referenced-column-name="id_enfermedad"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_finca" referenced-column-name="id_finca"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

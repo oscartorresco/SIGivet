@@ -1,0 +1,40 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Especie
+ *
+ * @ORM\Table(name="especie", uniqueConstraints={@ORM\UniqueConstraint(name="especie_pk", columns={"id_especie"})})
+ * @ORM\Entity
+ */
+class Especie
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_especie", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="especie_id_especie_seq", allocationSize=1, initialValue=1)
+     */
+    private $idEspecie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_especie", type="string", length=50, nullable=false)
+     */
+    private $nombreEspecie;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estado_especie", type="boolean", nullable=false)
+     */
+    private $estadoEspecie;
+
+
+}

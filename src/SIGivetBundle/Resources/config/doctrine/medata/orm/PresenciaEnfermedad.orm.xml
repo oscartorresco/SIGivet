@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="PresenciaEnfermedad" table="presencia_enfermedad">
+    <indexes>
+      <index name="r11_fk" columns="id_estudio"/>
+    </indexes>
+    <id name="idEnfermedad" association-key="true"/>
+    <one-to-one field="idEnfermedad" target-entity="Enfermedad">
+      <join-columns>
+        <join-column name="id_enfermedad" referenced-column-name="id_enfermedad"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="idEstudio" target-entity="Estudio">
+      <join-columns>
+        <join-column name="id_estudio" referenced-column-name="id_estudio"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

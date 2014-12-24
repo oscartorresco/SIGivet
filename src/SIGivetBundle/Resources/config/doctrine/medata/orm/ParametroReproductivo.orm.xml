@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ParametroReproductivo" table="parametro_reproductivo">
+    <unique-constraints>
+      <unique-constraint name="parametro_reproductivo_pk" columns="id_parametro_reproductivo"/>
+    </unique-constraints>
+    <id name="idParametroReproductivo" type="integer" column="id_parametro_reproductivo">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreParametroReproductivo" type="string" column="nombre_parametro_reproductivo" length="100" nullable="false"/>
+    <field name="estadoParametroReproductivo" type="boolean" column="estado_parametro_reproductivo" nullable="false"/>
+    <many-to-many field="idFinca" target-entity="Finca" inversed-by="idParametroReproductivo">
+      <join-table name="parametro_finca">
+        <join-columns>
+          <join-column name="id_parametro_reproductivo" referenced-column-name="id_parametro_reproductivo"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_finca" referenced-column-name="id_finca"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

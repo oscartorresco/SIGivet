@@ -1,0 +1,38 @@
+{% extends 'SIGivetBundle::layout.html.twig' %}
+{%  block title %}
+SIGivet
+{% endblock %}
+{% block superior %}
+<div  class="navbar">
+	<img class="pull-left vertical" width="50" height="50" src="{{ asset('bundles/sigivet/images/logo.png') }}"><h3 class="pull-left horizontal"><strong class="muted hand white">SIGivet</strong></h3>
+	<form class="form-inline pull-right">
+		<label class="pull-right s">
+		<input type="text" class="input-medium" required="" placeholder="Usuario">
+		<input type="password" class="input-medium" required="" placeholder="Contraseña">
+		<button  class="btn btn-success margen" type="submit">Entrar</button>
+		</label>
+	</form>
+</div>
+{% endblock %}
+{% block contenido %}
+<h3 class="align-center">GEOGRAFÍA DE BOYACÁ</h3>
+<div class="align-center">
+
+</div>
+{% endblock %}
+{% block inferior %}
+<div class="well well-large">
+<div class="row">
+<address class="align-center">
+   <strong>UNIVERSIDAD PEDAGÓGICA Y TECNOLÓGICA DE COLOMBIA</strong><br>
+   <strong>Medicina Veterinaria y Zootecnia</strong><br>
+   veterinaria.zootecnia@uptc.edu.co<br>
+   <abbr title="Phone"></abbr> (57)8 7405626 ext 2557<br>
+   &copy; Copyright 2015 Sarmiento, E. Torres, O.
+
+</address>
+</div>
+</div>
+{% endblock %}
+
+

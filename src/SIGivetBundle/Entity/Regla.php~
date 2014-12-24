@@ -1,0 +1,78 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Regla
+ *
+ * @ORM\Table(name="regla", indexes={@ORM\Index(name="r62_fk", columns={"id_analisis"})})
+ * @ORM\Entity
+ */
+class Regla
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_regla", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="regla_id_regla_seq", allocationSize=1, initialValue=1)
+     */
+    private $idRegla;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="confianza", type="decimal", precision=10, scale=0, nullable=false)
+     */
+    private $confianza;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="soporte", type="decimal", precision=10, scale=0, nullable=false)
+     */
+    private $soporte;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lift", type="decimal", precision=10, scale=0, nullable=false)
+     */
+    private $lift;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estado_regla", type="boolean", nullable=false)
+     */
+    private $estadoRegla;
+
+    /**
+     * @var \Analisis
+     *
+     * @ORM\ManyToOne(targetEntity="Analisis")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_analisis", referencedColumnName="id_analisis")
+     * })
+     */
+    private $idAnalisis;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Variable", mappedBy="idRegla")
+     */
+    private $idVariable;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idVariable = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

@@ -1,0 +1,25 @@
+{% extends 'SIGivetBundle::menu.html.twig' %}
+{%  block title %}
+SIGivet
+{% endblock %}
+
+{% block miga %}
+<ul class="breadcrumb trim">
+     <li><a href="#">Inicio</a> <span class="divider">/</span></li>
+     <li><a href="#">Análisis</a> <span class="divider">/</span></li>
+     <li class="active">Proyectos</li>
+   </ul>
+
+{% endblock %}
+
+{% block contenido %}
+<div class="well  whites trim">
+	<h4 class="align-center"><strong>GRÁFICA</strong></h4>
+	<div id="linechart" style="min-width: 400px; height: 400px; margin: 0 auto">
+		
+	</div>
+	<script type="text/javascript">
+    {{ chart(chart) }}
+	</script>	
+</div>
+{% endblock %}

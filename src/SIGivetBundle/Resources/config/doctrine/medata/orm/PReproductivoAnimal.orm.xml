@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="PReproductivoAnimal" table="p_reproductivo_animal">
+    <indexes>
+      <index name="r58_fk" columns="id_unidad"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="reproductivo_animal_pk" columns="id_p_reproductivo_animal"/>
+    </unique-constraints>
+    <id name="idPReproductivoAnimal" type="integer" column="id_p_reproductivo_animal">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreReproductivoAnimal" type="string" column="nombre_reproductivo_animal" length="100" nullable="false"/>
+    <field name="estadoReproductivoAnimal" type="boolean" column="estado_reproductivo_animal" nullable="false"/>
+    <many-to-one field="idUnidad" target-entity="UnidadTiempo">
+      <join-columns>
+        <join-column name="id_unidad" referenced-column-name="id_unidad"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idAnimal" target-entity="Animal" inversed-by="idPReproductivoAnimal">
+      <join-table name="reproduccion_animal">
+        <join-columns>
+          <join-column name="id_p_reproductivo_animal" referenced-column-name="id_p_reproductivo_animal"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_animal" referenced-column-name="id_animal"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,140 @@
+{% extends 'SIGivetBundle::menu.html.twig' %}
+{%  block title %}
+SIGivet
+{% endblock %}
+
+{% block miga %}
+<ul class="breadcrumb trim">
+     <li><a href="#">Inicio</a> <span class="divider">/</span></li>
+     <li><a href="#">Proyecto</a> <span class="divider">/</span></li>
+     <li class="active">Finca</li>
+   </ul>
+
+{% endblock %}
+
+{% block contenido %}
+<div class="well whites">
+    <div class="well whites">
+    <h3 class="pull-left">Proyecto</h3>
+	<a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-plus-square"></i> Agregar Finca</a>
+    </div>
+	<h4 class="align-center"><strong>LISTA DE FINCAS</strong></h4>	
+	<table class="table table-bordered">
+		<tr>
+			<th><strong>Finca</strong></th>
+			<th><strong>Nombre</strong></th>
+			<th><strong>Vereda</strong></th>
+			<th><strong>Propietario</strong></th>
+			<th><strong>Ver Individuos</strong></th>
+			<th><strong>Opciones</strong></th>
+		</tr>
+        <tbody class="tabla">
+        	<tr  style="cursor:pointer;">
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			</tr>
+        </tbody>
+   </table>
+   <div class="pagination pagination-centered">
+   <ul class="pager">
+     <li class="previous"><a href="#"></a></li>
+     <li class="next"><a href="#"></a></li>
+   </ul>
+   </div>
+</div>
+<a id="show-toast-button"  data-toggle="modal" href="#myModalEditFarm" class="btn btn-success pull-right"><i class="fa fa-plus-square"></i> Editar Finca</a>
+<div id="myModal" class="modal hide fade">
+	<div class="modal-header well">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+		<h3 id="myModalLabel" class="align-center"><strong> SELECCIONAR LA FINCA </strong></h3>
+    </div>
+    <div class="modal-body">
+        <form class="form">
+            <div class="row">
+                <div class="span1"><label class="muted"><strong>Finca:</strong></label></div>
+                <div class="span2"><input type="text" class="input-medium search-query inline"></div>
+                <div class="span3"><button class="btn btn-success"><i class="fa fa-plus-square"></i> Agregar Nueva</button></div>
+            </div>
+            <div class="row">
+                <br></br>
+                <div class="span1"></div>
+                <div class="span2"> <button  class="btn btn-success"><i class="fa fa-share-square"></i> Ir</button></div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="myModalEditFarm" class="modal hide fade">
+    <div class="modal-header well">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 id="myModalLabel" class="align-center"><strong> EDITAR FINCA </strong></h3>
+    </div>
+    <div class="modal-body">
+        <form class="form">
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Nombre*</strong></label></div>
+                <div><input type="text" required=""></input></div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Número telefono</strong></label></div>
+                <div><input type="text" required=""></input></div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Dirección*</strong></label></div>
+                <div><input type="text" required=""></input></div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Area*</strong></label></div>
+                <div><input type="text" required=""></input></div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Msnm*</strong></label></div>
+                <div><input type="text" required=""></input></div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Temperatura*</strong></label></div>
+                <div><input type="number" required=""></input></div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Pasto predominante</strong></label></div>
+                <div>
+                    <select style="width:206px">
+                        <option>Seleccionar</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Municipio*</strong></label></div>
+                <div>
+                    <select style="width:206px">
+                        <option>Seleccionar</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Vereda*</strong></label></div>
+                <div>
+                    <select style="width:206px">
+                        <option>Seleccionar</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Propietario*</strong></label></div>
+                <div>
+                    <select style="width:206px">
+                        <option>Seleccionar</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success">Editar</button>
+        <button class="btn" data-dismiss="modal">Cancelar</button>
+    </div>
+</div>
+{% endblock %}

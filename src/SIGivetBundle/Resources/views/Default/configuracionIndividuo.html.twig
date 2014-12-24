@@ -1,0 +1,171 @@
+{% extends 'SIGivetBundle::menu.html.twig' %}
+{%  block title %}
+SIGivet
+{% endblock %}
+
+{% block miga %}
+<ul class="breadcrumb trim">
+	<li><a href="">Inicio</a> <span class="divider">/</span></li>
+	<li class="active">Configuración</li>
+</ul>
+{% endblock %}
+
+{% block contenido %}
+<div class="well whites trim">
+    <div class="well whites trim">
+    <h3 class="pull-left">Configuración</h3>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-user"></i> Individuo</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-pencil"></i> Estudio</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-picture-o"></i> Finca</a>
+    </div>
+    <div class="well whites">
+    <h3 class="pull-left">Opciones</h3>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-share-square-o"></i> Salir</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-plus-square"></i> Agregar</a>
+    </div>
+    <div class="row">
+        <div class="span3 well whites">
+            <h4><strong>SELECCIONAR LA TABLA</strong></h4>
+            <div class="row">
+                <button class="btn btn-success span3" type="button"><strong class="align-center">Paciente Animal</strong></button>
+            </div>
+            <div class="row">
+                <button class="btn btn-success span3" type="button"><strong class="align-center">Producción Láctea</strong></button>
+            </div>
+            <div class="row">
+                <button class="btn btn-success span3" type="button"><strong class="align-center">Producción Láctea Animal</strong></button>
+            </div>
+            <div class="row">
+                <button class="btn btn-success span3" type="button"><strong class="align-center">Parámetro Reproductivo</strong></button>
+            </div>
+            <div class="row">
+                <button class="btn btn-success span3" type="button"><strong class="align-center">Parámetro Reproductivo Animal</strong></button>
+            </div>
+            <div class="row">
+                <button class="btn btn-success span3" type="button"><strong class="align-center">Abortos Animal</strong></button>
+            </div>
+            <div class="row">
+                <button class="btn btn-success span3" type="button"><strong class="align-center">Categoria Variables</strong></button>
+            </div>
+            <div class="row">
+                <button class="btn btn-success span3" type="button"><strong class="align-center">Variables</strong></button>
+            </div>
+            <div class="row">
+                <button class="btn btn-success span3" type="button"><strong class="align-center">Resultado Variables Animal</strong></button>
+            </div>
+            <div class="row">
+                <button class="btn btn-success span3" type="button"><strong class="align-center">Paciente Humano</strong></button>
+            </div>
+            <div class="row">
+                <button class="btn btn-success span3" type="button"><strong class="align-center">Raza</strong></button>
+            </div>
+            <div class="row">
+                <button class="btn btn-success span3" type="button"><strong class="align-center">Resultado Variables Humano</strong></button>
+            </div>
+        </div>
+        <div class="span7">
+            <h4 class="align-center"><strong>LISTA INDIVIDUOS</strong></h4>
+            <table class="table table-bordered">
+                <tr>
+                    <th><strong>Id</strong></th>
+                    <th><strong>Genero</strong></th>
+                    <th><strong>Fecha Nacimiento</strong></th>
+                    <th><strong>Peso (Kg)</strong></th>
+                    <th><strong>Condición Corporal</strong></th>
+                    <th><strong>Raza</strong></th>
+                    <th><strong>Clasificación</strong></th>
+                    <th><strong>Opciones</strong></th>
+                </tr>
+                <tbody class="tabla">
+                <tr  style="cursor:pointer;">
+                    <td id=""></td>
+                    <td id=""></td>
+                    <td id=""></td>
+                    <td id=""></td>
+                    <td id=""></td>
+                    <td id=""></td>
+                    <td id=""></td>
+                    <td id=""></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="pagination pagination-centered">
+            <ul class="pager">
+                <li class="previous"><a href="#"></a></li>
+                <li class="next"><a href="#"></a></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myModal" class="modal hide fade">
+    <div class="modal-header well">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 id="myModalLabel" class="align-center"><strong> AGREGAR INDIVIDUO </strong></h3>
+    </div>
+    <div class="modal-body">
+        <form class="form">
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Nombre*</strong></label></div>
+                <div><input type="text" required=""></input></div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Número telefono</strong></label></div>
+                <div><input type="text" required=""></input></div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Dirección*</strong></label></div>
+                <div><input type="text" required=""></input></div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Area*</strong></label></div>
+                <div><input type="text" required=""></input></div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Msnm*</strong></label></div>
+                <div><input type="text" required=""></input></div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Temperatura*</strong></label></div>
+                <div><input type="number" required=""></input></div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Pasto predominante</strong></label></div>
+                <div>
+                    <select style="width:206px">
+                        <option>Seleccionar</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Municipio*</strong></label></div>
+                <div>
+                    <select style="width:206px">
+                        <option>Seleccionar</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Vereda*</strong></label></div>
+                <div>
+                    <select style="width:206px">
+                        <option>Seleccionar</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Propietario*</strong></label></div>
+                <div>
+                    <select style="width:206px">
+                        <option>Seleccionar</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success"> <i class="fa fa-floppy-o"></i> Guardar</button>
+        <button class="btn" data-dismiss="modal"> <i class="fa fa-times"></i> Cancelar</button>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,109 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Animal
+ *
+ * @ORM\Table(name="animal", indexes={@ORM\Index(name="r44_fk", columns={"id_clasificacion", "id_raza"})})
+ * @ORM\Entity
+ */
+class Animal
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_animal", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="animal_id_animal_seq", allocationSize=1, initialValue=1)
+     */
+    private $idAnimal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_indivudual_animal", type="string", length=50, nullable=true)
+     */
+    private $idIndivudualAnimal;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="genero_animal", type="boolean", nullable=false)
+     */
+    private $generoAnimal;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_nacimiento_animal", type="date", nullable=true)
+     */
+    private $fechaNacimientoAnimal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="peso_animal", type="decimal", precision=10, scale=0, nullable=true)
+     */
+    private $pesoAnimal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="condicion_corporal", type="decimal", precision=10, scale=0, nullable=false)
+     */
+    private $condicionCorporal;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estado_animal", type="boolean", nullable=false)
+     */
+    private $estadoAnimal;
+
+    /**
+     * @var \RazaClasificacion
+     *
+     * @ORM\ManyToOne(targetEntity="RazaClasificacion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_clasificacion", referencedColumnName="id_clasificacion"),
+     *   @ORM\JoinColumn(name="id_raza", referencedColumnName="id_raza")
+     * })
+     */
+    private $idClasificacion;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Sintoma", mappedBy="idAnimal")
+     */
+    private $idSintoma;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="ProduccionLactea", mappedBy="idAnimal")
+     */
+    private $idProduccionLactea;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="PReproductivoAnimal", mappedBy="idAnimal")
+     */
+    private $idPReproductivoAnimal;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idSintoma = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idProduccionLactea = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idPReproductivoAnimal = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="FuenteAgua" table="fuente_agua">
+    <id name="idFuenteAgua" type="integer" column="id_fuente_agua">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="tipoFuenteAgua" type="string" column="tipo_fuente_agua" length="100" nullable="false"/>
+    <field name="estadoFuenteAgua" type="boolean" column="estado_fuente_agua" nullable="false"/>
+    <many-to-many field="idFinca" target-entity="Finca" mapped-by="idFuenteAgua"/>
+  </entity>
+</doctrine-mapping>

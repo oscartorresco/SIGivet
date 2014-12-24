@@ -1,0 +1,140 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Finca
+ *
+ * @ORM\Table(name="finca", indexes={@ORM\Index(name="r3_fk", columns={"id_vereda"}), @ORM\Index(name="r33_fk", columns={"id_pasto"})})
+ * @ORM\Entity
+ */
+class Finca
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_finca", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="finca_id_finca_seq", allocationSize=1, initialValue=1)
+     */
+    private $idFinca;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_persona", type="integer", nullable=false)
+     */
+    private $idPersona;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_finca", type="string", length=50, nullable=false)
+     */
+    private $nombreFinca;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono_finca", type="string", length=50, nullable=true)
+     */
+    private $telefonoFinca;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="direccion_finca", type="string", length=100, nullable=false)
+     */
+    private $direccionFinca;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="area_finca", type="decimal", precision=10, scale=0, nullable=false)
+     */
+    private $areaFinca;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="msnm", type="integer", nullable=true)
+     */
+    private $msnm;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="temperatura_finca", type="decimal", precision=10, scale=0, nullable=true)
+     */
+    private $temperaturaFinca;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estado_finca", type="boolean", nullable=false)
+     */
+    private $estadoFinca;
+
+    /**
+     * @var \Vereda
+     *
+     * @ORM\ManyToOne(targetEntity="Vereda")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_vereda", referencedColumnName="id_vereda")
+     * })
+     */
+    private $idVereda;
+
+    /**
+     * @var \Pasto
+     *
+     * @ORM\ManyToOne(targetEntity="Pasto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_pasto", referencedColumnName="id_pasto")
+     * })
+     */
+    private $idPasto;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="FuenteAgua", inversedBy="idFinca")
+     * @ORM\JoinTable(name="fuente_agua_finca",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_finca", referencedColumnName="id_finca")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_fuente_agua", referencedColumnName="id_fuente_agua")
+     *   }
+     * )
+     */
+    private $idFuenteAgua;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Enfermedad", mappedBy="idFinca")
+     */
+    private $idEnfermedad;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="ParametroReproductivo", mappedBy="idFinca")
+     */
+    private $idParametroReproductivo;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idFuenteAgua = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idEnfermedad = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idParametroReproductivo = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

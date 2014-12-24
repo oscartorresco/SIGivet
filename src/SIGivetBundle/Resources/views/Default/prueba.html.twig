@@ -1,0 +1,29 @@
+{% extends 'SIGivetBundle::menu.html.twig' %}
+{%  block title %}
+SIGivet
+{% endblock %}
+
+{% block miga %}
+<ul class="breadcrumb trim">
+    <li><a href="#">Inicio</a> <span class="divider">/</span></li>
+    <li><a href="#">Proyecto</a> <span class="divider">/</span></li>
+    <li class="active">Lista Fincas</li>
+</ul>
+{% endblock %}
+
+{% block contenido %}
+<div style="background-color:white" class="well">
+<table>
+      <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+      </tr>
+      {% for provincia in provincias %}
+      <tr>
+          <td>{{ provincia.id_prov }}</td>
+          <td>{{ provincia.nombr_prov }}</td>
+      </tr>
+      {% endfor %}
+  </table>
+</div>  
+{% endblock %}

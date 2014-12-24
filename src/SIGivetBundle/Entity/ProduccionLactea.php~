@@ -1,0 +1,72 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ProduccionLactea
+ *
+ * @ORM\Table(name="produccion_lactea", uniqueConstraints={@ORM\UniqueConstraint(name="produccion_lactea_pk", columns={"id_produccion_lactea"})}, indexes={@ORM\Index(name="r59_fk", columns={"id_unidad"})})
+ * @ORM\Entity
+ */
+class ProduccionLactea
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_produccion_lactea", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="produccion_lactea_id_produccion_lactea_seq", allocationSize=1, initialValue=1)
+     */
+    private $idProduccionLactea;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_produccion_lactea", type="string", length=100, nullable=false)
+     */
+    private $nombreProduccionLactea;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estado_produccion_lactea", type="boolean", nullable=false)
+     */
+    private $estadoProduccionLactea;
+
+    /**
+     * @var \UnidadTiempo
+     *
+     * @ORM\ManyToOne(targetEntity="UnidadTiempo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_unidad", referencedColumnName="id_unidad")
+     * })
+     */
+    private $idUnidad;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Animal", inversedBy="idProduccionLactea")
+     * @ORM\JoinTable(name="produccion_lactea_animal",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_produccion_lactea", referencedColumnName="id_produccion_lactea")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_animal", referencedColumnName="id_animal")
+     *   }
+     * )
+     */
+    private $idAnimal;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idAnimal = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

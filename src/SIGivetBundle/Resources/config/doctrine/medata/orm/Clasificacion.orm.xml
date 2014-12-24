@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Clasificacion" table="clasificacion">
+    <indexes>
+      <index name="r24_fk" columns="id_especie"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="clasificacion_pk" columns="id_clasificacion"/>
+    </unique-constraints>
+    <id name="idClasificacion" type="integer" column="id_clasificacion">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreClasificacion" type="string" column="nombre_clasificacion" length="50" nullable="false"/>
+    <field name="generoClasificacion" type="boolean" column="genero_clasificacion" nullable="false"/>
+    <field name="estadoClasificacion" type="boolean" column="estado_clasificacion" nullable="false"/>
+    <many-to-one field="idEspecie" target-entity="Especie">
+      <join-columns>
+        <join-column name="id_especie" referenced-column-name="id_especie"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idRaza" target-entity="Raza" inversed-by="idClasificacion">
+      <join-table name="raza_clasificacion">
+        <join-columns>
+          <join-column name="id_clasificacion" referenced-column-name="id_clasificacion"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_raza" referenced-column-name="id_raza"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

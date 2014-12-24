@@ -1,0 +1,184 @@
+{% extends 'SIGivetBundle::menu.html.twig' %}
+{%  block title %}
+SIGivet
+{% endblock %}
+
+{% block miga %}
+<ul class="breadcrumb trim">
+     <li><a href="#">Inicio</a> <span class="divider">/</span></li>
+     <li><a href="#">Proyecto</a> <span class="divider">/</span></li>
+     <li class="active">Individuos</li>
+   </ul>
+
+{% endblock %}
+
+{% block contenido %}
+    <div class="well trim whites">
+    <h3 class="pull-left"><strong>Información</strong></h3>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-table"></i> Leptospira</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-info"></i> Serológicas</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-male"></i> Coprológicas</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-drupal"></i> Hemoparásito</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-github-alt"></i> Hemograma</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-slideshare"></i> Parametros</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-table"></i> Identificación</a>
+    </div>
+    <div class="well trim whites">
+    <h3 class="pull-left"><strong>Funciones</strong></h3>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-download"></i> Descarga</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right "><i class="fa fa-bar-chart"></i> Edad</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-bar-chart"></i> Genero</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-bar-chart"></i> Raza</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-bar-chart"></i> Prevalencia</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-share-alt"></i> Estadistica</a>
+    </div>
+    <div class="well trim whites">
+	<h4 class="align-center"><strong>LISTA DE INDIVIDUOS</strong></h4>
+    <form>
+        <div class="row">
+            <div class="span2"><strong>Fecha de Estudio:</strong></div>
+            <div class="span2"><strong class="muted">12/Noviembre/2014</strong></div>
+        </div>
+        <div class="row">
+            <div class="span2"><strong>Municipio:</strong></div>
+            <div class="span2"><strong class="muted">Sotaquirá</strong></div>
+        </div>
+    </form>	
+	<table class="table table-bordered">
+		<tr>
+			<th><strong>Participante</strong></th>
+			<th><strong>Finca</strong></th>
+			<th><strong>Edad (Años)</strong></th>
+			<th><strong>Ictero</strong></th>
+			<th><strong>Pomona</strong></th>
+            <th><strong>Hardjo</strong></th>
+            <th><strong>Canicola</strong></th>
+            <th><strong>Sejroe</strong></th>
+            <th><strong>Automnalis</strong></th>
+			<th><strong>Opciones</strong></th>
+		</tr>
+        <tbody class="tabla">
+        	<tr  style="cursor:pointer;">
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+                <td id=""></td>
+                <td id=""></td>
+                <td id=""></td>
+                <td id=""></td>
+			</tr>
+        </tbody>
+   </table>
+   <div class="pagination pagination-centered">
+   <ul class="pager">
+     <li class="previous"><a href="#"></a></li>
+     <li class="next"><a href="#"></a></li>
+   </ul>
+   </div>
+<a id="show-toast-button"  data-toggle="modal" href="#myModalEdit" class="btn btn-success pull-right"><i class="fa fa-info-circle"></i> Editar Individuo</a>
+</div>
+<div id="myModalEdit" class="modal hide fade">
+	<div class="modal-header well">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+		<h3 id="myModalLabel" class="align-center"><strong> EDITAR "  " </strong></h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="span3"><label class="muted"><strong>Individuo:</strong></label></div>
+            <div><label><strong>{}</strong></label></input></div>
+        </div>
+        <div class="row">
+            <div class="span3"><label class="muted"><strong>Finca:</strong></label></div>
+            <div><label><strong>{}</strong></label></input></div>
+        </div>
+        <br />
+        <form class="form">
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Ictero:</strong></label></div>
+                <div>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                        <span class="metro-radio">Positivo</span>
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                        <span class="metro-radio">Negativo</span>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Pomona:</strong></label></div>
+                <div>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                        <span class="metro-radio">Positivo</span>
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                        <span class="metro-radio">Negativo</span>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Hardjo:</strong></label></div>
+                <div>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                        <span class="metro-radio">Positivo</span>
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                        <span class="metro-radio">Negativo</span>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Carnicola:</strong></label></div>
+                <div>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                        <span class="metro-radio">Positivo</span>
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                        <span class="metro-radio">Negativo</span>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Serjoe:</strong></label></div>
+                <div>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                        <span class="metro-radio">Positivo</span>
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                        <span class="metro-radio">Negativo</span>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3"><label class="muted"><strong>Automnalis:</strong></label></div>
+                <div>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                        <span class="metro-radio">Positivo</span>
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                        <span class="metro-radio">Negativo</span>
+                    </label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success">Editar</button>
+        <button class="btn" data-dismiss="modal">Cancelar</button>
+    </div>
+</div>
+{% endblock %}

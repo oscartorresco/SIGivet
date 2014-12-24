@@ -1,0 +1,200 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Estudio
+ *
+ * @ORM\Table(name="estudio", uniqueConstraints={@ORM\UniqueConstraint(name="estudio_pk", columns={"id_estudio"})}, indexes={@ORM\Index(name="r14_fk", columns={"id_finca"}), @ORM\Index(name="r50_fk", columns={"id_proyecto"}), @ORM\Index(name="r21_fk", columns={"id_raza"})})
+ * @ORM\Entity
+ */
+class Estudio
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_estudio", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="estudio_id_estudio_seq", allocationSize=1, initialValue=1)
+     */
+    private $idEstudio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_persona", type="integer", nullable=false)
+     */
+    private $idPersona;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="vacas_toro", type="integer", nullable=true)
+     */
+    private $vacasToro;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="comparte_reproductores", type="boolean", nullable=true)
+     */
+    private $comparteReproductores;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="animales_certificados", type="boolean", nullable=true)
+     */
+    private $animalesCertificados;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="disposicion_animal_muerto", type="integer", nullable=true)
+     */
+    private $disposicionAnimalMuerto;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="control_roedores", type="boolean", nullable=true)
+     */
+    private $controlRoedores;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="almacen_concentrado", type="integer", nullable=true)
+     */
+    private $almacenConcentrado;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="humedad_alimentos", type="boolean", nullable=true)
+     */
+    private $humedadAlimentos;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="registro_produccion", type="boolean", nullable=true)
+     */
+    private $registroProduccion;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="botoquin_veterinario", type="boolean", nullable=true)
+     */
+    private $botoquinVeterinario;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="productos_agricolas", type="boolean", nullable=true)
+     */
+    private $productosAgricolas;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="asistente_tecnico", type="boolean", nullable=true)
+     */
+    private $asistenteTecnico;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="control_ectoparasitos", type="boolean", nullable=true)
+     */
+    private $controlEctoparasitos;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estado_estudio", type="boolean", nullable=false)
+     */
+    private $estadoEstudio;
+
+    /**
+     * @var \Finca
+     *
+     * @ORM\ManyToOne(targetEntity="Finca")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_finca", referencedColumnName="id_finca")
+     * })
+     */
+    private $idFinca;
+
+    /**
+     * @var \Raza
+     *
+     * @ORM\ManyToOne(targetEntity="Raza")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_raza", referencedColumnName="id_raza")
+     * })
+     */
+    private $idRaza;
+
+    /**
+     * @var \Proyecto
+     *
+     * @ORM\ManyToOne(targetEntity="Proyecto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_proyecto", referencedColumnName="id_proyecto")
+     * })
+     */
+    private $idProyecto;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="RazaClasificacion", mappedBy="idEstudio")
+     */
+    private $idClasificacion;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="ManejoReproductivo", inversedBy="idEstudio")
+     * @ORM\JoinTable(name="manejo_reproductivo_finca",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_estudio", referencedColumnName="id_estudio")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_manejo_reproductivo", referencedColumnName="id_manejo_reproductivo")
+     *   }
+     * )
+     */
+    private $idManejoReproductivo;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Sintoma", mappedBy="idEstudio")
+     */
+    private $idSintoma;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="SuplementoNutricional", mappedBy="idEstudio")
+     */
+    private $idSuplementoNutricional;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idClasificacion = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idManejoReproductivo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idSintoma = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idSuplementoNutricional = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

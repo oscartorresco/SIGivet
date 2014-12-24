@@ -1,0 +1,54 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ManejoReproductivo
+ *
+ * @ORM\Table(name="manejo_reproductivo", uniqueConstraints={@ORM\UniqueConstraint(name="manejo_reproductivo_pk", columns={"id_manejo_reproductivo"})})
+ * @ORM\Entity
+ */
+class ManejoReproductivo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_manejo_reproductivo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="manejo_reproductivo_id_manejo_reproductivo_seq", allocationSize=1, initialValue=1)
+     */
+    private $idManejoReproductivo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tipo_manejo_reproductivo", type="string", length=100, nullable=false)
+     */
+    private $tipoManejoReproductivo;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estado_manejo_reproductivo", type="boolean", nullable=false)
+     */
+    private $estadoManejoReproductivo;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Estudio", mappedBy="idManejoReproductivo")
+     */
+    private $idEstudio;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idEstudio = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

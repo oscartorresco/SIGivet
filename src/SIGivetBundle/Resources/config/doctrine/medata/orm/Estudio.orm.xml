@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Estudio" table="estudio">
+    <indexes>
+      <index name="r14_fk" columns="id_finca"/>
+      <index name="r50_fk" columns="id_proyecto"/>
+      <index name="r21_fk" columns="id_raza"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="estudio_pk" columns="id_estudio"/>
+    </unique-constraints>
+    <id name="idEstudio" type="bigint" column="id_estudio">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="idPersona" type="integer" column="id_persona" nullable="false"/>
+    <field name="vacasToro" type="integer" column="vacas_toro" nullable="true"/>
+    <field name="comparteReproductores" type="boolean" column="comparte_reproductores" nullable="true"/>
+    <field name="animalesCertificados" type="boolean" column="animales_certificados" nullable="true"/>
+    <field name="disposicionAnimalMuerto" type="integer" column="disposicion_animal_muerto" nullable="true"/>
+    <field name="controlRoedores" type="boolean" column="control_roedores" nullable="true"/>
+    <field name="almacenConcentrado" type="integer" column="almacen_concentrado" nullable="true"/>
+    <field name="humedadAlimentos" type="boolean" column="humedad_alimentos" nullable="true"/>
+    <field name="registroProduccion" type="boolean" column="registro_produccion" nullable="true"/>
+    <field name="botoquinVeterinario" type="boolean" column="botoquin_veterinario" nullable="true"/>
+    <field name="productosAgricolas" type="boolean" column="productos_agricolas" nullable="true"/>
+    <field name="asistenteTecnico" type="boolean" column="asistente_tecnico" nullable="true"/>
+    <field name="controlEctoparasitos" type="boolean" column="control_ectoparasitos" nullable="true"/>
+    <field name="estadoEstudio" type="boolean" column="estado_estudio" nullable="false"/>
+    <many-to-one field="idFinca" target-entity="Finca">
+      <join-columns>
+        <join-column name="id_finca" referenced-column-name="id_finca"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idProyecto" target-entity="Proyecto">
+      <join-columns>
+        <join-column name="id_proyecto" referenced-column-name="id_proyecto"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idRaza" target-entity="Raza">
+      <join-columns>
+        <join-column name="id_raza" referenced-column-name="id_raza"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idSuplementoNutricional" target-entity="SuplementoNutricional" mapped-by="idEstudio"/>
+    <many-to-many field="idSintoma" target-entity="Sintoma" mapped-by="idEstudio"/>
+    <many-to-many field="idClasificacion" target-entity="RazaClasificacion" mapped-by="idEstudio"/>
+    <many-to-many field="idManejoReproductivo" target-entity="ManejoReproductivo" inversed-by="idEstudio">
+      <join-table name="manejo_reproductivo_finca">
+        <join-columns>
+          <join-column name="id_estudio" referenced-column-name="id_estudio"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_manejo_reproductivo" referenced-column-name="id_manejo_reproductivo"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

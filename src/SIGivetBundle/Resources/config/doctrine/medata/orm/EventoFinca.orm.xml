@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="EventoFinca" table="evento_finca">
+    <indexes>
+      <index name="r41_fk" columns="id_enfermedad"/>
+      <index name="r6_fk" columns="id_finca"/>
+    </indexes>
+    <id name="idEvento" type="bigint" column="id_evento"/>
+    <id name="idFinca" association-key="true"/>
+    <field name="producto" type="string" column="producto" length="100" nullable="true"/>
+    <field name="aplicadoA" type="integer" column="aplicado_a" nullable="false"/>
+    <field name="agujaDesechable" type="boolean" column="aguja_desechable" nullable="false"/>
+    <field name="vacunadorEvento" type="integer" column="vacunador_evento" nullable="false"/>
+    <field name="fechaVacuna" type="date" column="fecha_vacuna" nullable="true"/>
+    <field name="tipoTratamiento" type="integer" column="tipo_tratamiento" nullable="true"/>
+    <field name="detalleTratamiento" type="string" column="detalle_tratamiento" length="1024" nullable="true"/>
+    <field name="frecuenciaDesparasitacion" type="integer" column="frecuencia_desparasitacion" nullable="true"/>
+    <one-to-one field="idFinca" target-entity="Finca">
+      <join-columns>
+        <join-column name="id_finca" referenced-column-name="id_finca"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="idEnfermedad" target-entity="Enfermedad">
+      <join-columns>
+        <join-column name="id_enfermedad" referenced-column-name="id_enfermedad"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

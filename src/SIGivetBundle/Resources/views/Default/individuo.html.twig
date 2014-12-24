@@ -1,0 +1,66 @@
+{% extends 'SIGivetBundle::menu.html.twig' %}
+{%  block title %}
+SIGivet
+{% endblock %}
+
+{% block miga %}
+<ul class="breadcrumb trim">
+     <li><a href="#">Inicio</a> <span class="divider">/</span></li>
+     <li><a href="#">Proyecto</a> <span class="divider">/</span></li>
+     <li><a href="#">Finca</a> <span class="divider">/</span></li>
+     <li class="active">Individuo</li>
+   </ul>
+
+{% endblock %}
+
+{% block contenido %}
+<div class="well whites">
+    <div class="well whites">
+    <h3 class="pull-left">Individuos por Finca</h3>
+	<a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-male"></i> Agregar Humano</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-github-alt"></i> Agregar Animal</a>
+    </div>
+	<h4 class="align-center"><strong>LISTA DE INDIVIDUOS</strong></h4>	
+	<table class="table table-bordered">
+		<tr>
+			<th><strong>Número</strong></th>
+			<th><strong>Especie</strong></th>
+			<th><strong>Raza</strong></th>
+			<th><strong>Edad</strong></th>
+			<th><strong>Genero</strong></th>
+            <th><strong>Opciones</strong></th>
+		</tr>
+        <tbody class="tabla">
+        	<tr  style="cursor:pointer;">
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+                <td id=""></td>
+			</tr>
+        </tbody>
+   </table>
+   <div class="pagination pagination-centered">
+   <ul class="pager">
+     <li class="previous"><a href="#"></a></li>
+     <li class="next"><a href="#"></a></li>
+   </ul>
+   </div>
+</div>
+<div id="myModal" class="modal hide fade">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+		<h3 id="myModalLabel" class="muted"><strong> SELECCIONAR LA FINCA </strong></h3>
+    </div>
+    <div class="modal-body">
+        <h4><strong>Finca</strong></h4>
+        <form class="form-search">
+            <input type="text" class="input-medium search-query inline">
+            <button type="submit" class="btn"><i class="fa fa-plus-square"></i> Agregar Nueva</button>
+            <br></br>
+            <button type="submit" class="btn"><i class="fa fa-share-square"></i> Ir</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

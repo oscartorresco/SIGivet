@@ -1,0 +1,38 @@
+{% extends 'SIGivetBundle::menu.html.twig' %}
+{%  block title %}
+SIGivet
+{% endblock %}
+
+{% block miga %}
+<ul class="breadcrumb trim">
+     <li><a href="#">Inicio</a> <span class="divider">/</span></li>
+     <li class="active">Historial</li>
+   </ul>
+
+{% endblock %}
+
+{% block contenido %}
+<div class="well whites">
+    <div class="well whites">
+    <h3 class="pull-left">Variables</h3>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-male"></i> Leptospira</a>
+	<a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-male"></i> Cropológicas</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-info"></i> Serológicas</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-drupal"></i> Hemoparásito</a>
+    <a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-github-alt"></i> Hemograma</a>
+    </div>
+	<h4 class="align-center"><strong>RESULTADO DEL ESTUDIO</strong></h4>	
+    <div class="row">
+        <div class="span2"><label><strong> Fecha:</strong></label></div>
+        <div class="span2"><label class="muted"><strong> 12/Octubre/2014</strong></label></div>
+    </div>
+    <div class="row">
+        <div class="span2"><label><strong> Municipio:</strong></label></div>
+        <div class="span2"><label class="muted"><strong> Sotaquirá</strong></label></div>
+    </div>
+    <div class="row">
+        <div class="span2"><label><strong> Tipo Estudio:</strong></label></div>
+        <div class="span2"><label class="muted"><strong> Parasitario</strong></label></div>
+    </div>
+</div>
+{% endblock %}

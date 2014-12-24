@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Usuario" table="usuario">
+    <unique-constraints>
+      <unique-constraint name="usuario_correo_usuario_key" columns="correo_usuario"/>
+      <unique-constraint name="usuario_contrasena_usuario_key" columns="contrasena_usuario"/>
+    </unique-constraints>
+    <id name="identificacionUsuario" type="integer" column="identificacion_usuario">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreUsuario" type="string" column="nombre_usuario" length="30" nullable="false"/>
+    <field name="correoUsuario" type="string" column="correo_usuario" length="30" nullable="false"/>
+    <field name="contrasenaUsuario" type="string" column="contrasena_usuario" length="30" nullable="false"/>
+    <field name="rolUsuario" type="integer" column="rol_usuario" nullable="false"/>
+    <field name="estadoUsuario" type="boolean" column="estado_usuario" nullable="false"/>
+  </entity>
+</doctrine-mapping>

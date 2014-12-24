@@ -1,0 +1,72 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Variable
+ *
+ * @ORM\Table(name="variable", indexes={@ORM\Index(name="r35_fk", columns={"id_categoria"})})
+ * @ORM\Entity
+ */
+class Variable
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_variable", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="variable_id_variable_seq", allocationSize=1, initialValue=1)
+     */
+    private $idVariable;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_variable", type="string", length=50, nullable=false)
+     */
+    private $nombreVariable;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estado_variable", type="boolean", nullable=false)
+     */
+    private $estadoVariable;
+
+    /**
+     * @var \Categoria
+     *
+     * @ORM\ManyToOne(targetEntity="Categoria")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_categoria", referencedColumnName="id_categoria")
+     * })
+     */
+    private $idCategoria;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Regla", inversedBy="idVariable")
+     * @ORM\JoinTable(name="resultado_regla",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_variable", referencedColumnName="id_variable")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_regla", referencedColumnName="id_regla")
+     *   }
+     * )
+     */
+    private $idRegla;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idRegla = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

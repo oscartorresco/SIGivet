@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Finca" table="finca">
+    <indexes>
+      <index name="r3_fk" columns="id_vereda"/>
+      <index name="r33_fk" columns="id_pasto"/>
+    </indexes>
+    <id name="idFinca" type="bigint" column="id_finca">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="idPersona" type="integer" column="id_persona" nullable="false"/>
+    <field name="nombreFinca" type="string" column="nombre_finca" length="50" nullable="false"/>
+    <field name="telefonoFinca" type="string" column="telefono_finca" length="50" nullable="true"/>
+    <field name="direccionFinca" type="string" column="direccion_finca" length="100" nullable="false"/>
+    <field name="areaFinca" type="decimal" column="area_finca" precision="10" scale="0" nullable="false"/>
+    <field name="msnm" type="integer" column="msnm" nullable="true"/>
+    <field name="temperaturaFinca" type="decimal" column="temperatura_finca" precision="10" scale="0" nullable="true"/>
+    <field name="estadoFinca" type="boolean" column="estado_finca" nullable="false"/>
+    <many-to-one field="idVereda" target-entity="Vereda">
+      <join-columns>
+        <join-column name="id_vereda" referenced-column-name="id_vereda"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idPasto" target-entity="Pasto">
+      <join-columns>
+        <join-column name="id_pasto" referenced-column-name="id_pasto"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idParametroReproductivo" target-entity="ParametroReproductivo" mapped-by="idFinca"/>
+    <many-to-many field="idFuenteAgua" target-entity="FuenteAgua" inversed-by="idFinca">
+      <join-table name="fuente_agua_finca">
+        <join-columns>
+          <join-column name="id_finca" referenced-column-name="id_finca"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_fuente_agua" referenced-column-name="id_fuente_agua"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="idEnfermedad" target-entity="Enfermedad" mapped-by="idFinca"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,62 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ParametroReproductivo
+ *
+ * @ORM\Table(name="parametro_reproductivo", uniqueConstraints={@ORM\UniqueConstraint(name="parametro_reproductivo_pk", columns={"id_parametro_reproductivo"})})
+ * @ORM\Entity
+ */
+class ParametroReproductivo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_parametro_reproductivo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="parametro_reproductivo_id_parametro_reproductivo_seq", allocationSize=1, initialValue=1)
+     */
+    private $idParametroReproductivo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_parametro_reproductivo", type="string", length=100, nullable=false)
+     */
+    private $nombreParametroReproductivo;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estado_parametro_reproductivo", type="boolean", nullable=false)
+     */
+    private $estadoParametroReproductivo;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Finca", inversedBy="idParametroReproductivo")
+     * @ORM\JoinTable(name="parametro_finca",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_parametro_reproductivo", referencedColumnName="id_parametro_reproductivo")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_finca", referencedColumnName="id_finca")
+     *   }
+     * )
+     */
+    private $idFinca;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idFinca = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

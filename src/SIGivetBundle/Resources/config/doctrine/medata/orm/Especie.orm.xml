@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Especie" table="especie">
+    <unique-constraints>
+      <unique-constraint name="especie_pk" columns="id_especie"/>
+    </unique-constraints>
+    <id name="idEspecie" type="integer" column="id_especie">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreEspecie" type="string" column="nombre_especie" length="50" nullable="false"/>
+    <field name="estadoEspecie" type="boolean" column="estado_especie" nullable="false"/>
+  </entity>
+</doctrine-mapping>

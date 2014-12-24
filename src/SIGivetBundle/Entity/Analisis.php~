@@ -1,0 +1,50 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Analisis
+ *
+ * @ORM\Table(name="analisis", indexes={@ORM\Index(name="r61_fk", columns={"id_proyecto"})})
+ * @ORM\Entity
+ */
+class Analisis
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_analisis", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="analisis_id_analisis_seq", allocationSize=1, initialValue=1)
+     */
+    private $idAnalisis;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_analisis", type="date", nullable=false)
+     */
+    private $fechaAnalisis;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estado_analisis", type="boolean", nullable=false)
+     */
+    private $estadoAnalisis;
+
+    /**
+     * @var \Proyecto
+     *
+     * @ORM\ManyToOne(targetEntity="Proyecto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_proyecto", referencedColumnName="id_proyecto")
+     * })
+     */
+    private $idProyecto;
+
+
+}

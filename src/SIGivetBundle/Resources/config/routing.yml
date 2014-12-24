@@ -1,0 +1,83 @@
+si_givet_homepage:
+    pattern:	/
+    defaults: { _controller: SIGivetBundle:Default:index }
+
+si_givet_administrador:
+    pattern:	/administrador
+    defaults: { _controller: SIGivetBundle:Default:administrador}
+
+si_givet_proyecto:
+    pattern:	/proyecto
+    defaults: { _controller: SIGivetBundle:Default:proyecto}
+
+si_givet_finca:
+    pattern:	/finca
+    defaults: { _controller: SIGivetBundle:Default:finca}
+
+si_givet_agregarFinca:
+    pattern:	/agregarFinca
+    defaults: { _controller: SIGivetBundle:Default:agregarFinca}
+
+si_givet_agregarEstudio:
+    pattern:    /agregarEstudio
+    defaults: { _controller: SIGivetBundle:Default:agregarEstudio}
+
+si_givet_usuario:
+    pattern:    /usuario
+    defaults: { _controller: SIGivetBundle:Default:usuario}
+
+si_givet_configuracionFinca:
+    pattern:    /configuracionFinca
+    defaults: { _controller: SIGivetBundle:Default:configuracionFinca}
+
+si_givet_configuracionEstudio:
+    pattern:    /configuracionEstudio
+    defaults: { _controller: SIGivetBundle:Default:configuracionEstudio}
+
+si_givet_configuracionIndividuo:
+    pattern:    /configuracionIndividuo
+    defaults: { _controller: SIGivetBundle:Default:configuracionIndividuo}
+
+si_givet_agregarIndividuo:
+    pattern:    /agregarIndividuo
+    defaults: { _controller: SIGivetBundle:Default:agregarIndividuo}
+
+si_givet_agregarResultado:
+    pattern:    /agregarResultado
+    defaults: { _controller: SIGivetBundle:Default:agregarResultado}
+
+si_givet_verIndividuo:
+    pattern:    /verIndividuos
+    defaults: { _controller: SIGivetBundle:Default:verIndividuos}
+
+si_givet_historial:
+    pattern:    /historial
+    defaults: { _controller: SIGivetBundle:Default:historial}
+
+si_givet_individuo:
+    pattern:    /individuo
+    defaults: { _controller: SIGivetBundle:Default:individuo}
+
+si_givet_agregarHumano:
+    pattern:    /agregarHumano
+    defaults: { _controller: SIGivetBundle:Default:agregarHumano}
+
+si_givet_analisis:
+    pattern:    /análisis
+    defaults: { _controller: SIGivetBundle:Default:analisis}
+
+si_givet_verEstudio:
+    pattern:    /verEstudio
+    defaults: { _controller: SIGivetBundle:Default:verEstudio}
+
+si_givet_listar:
+    pattern:    /listar
+    defaults: { _controller: SIGivetBundle:Default:listar}
+
+si_givet_graficar:
+    pattern:    /graficar
+    defaults: { _controller: SIGivetBundle:Default:graficar}
+
+si_givet_reporte:
+    pattern:    /reporte
+    defaults: { _controller: SIGivetBundle:Default:reporte}

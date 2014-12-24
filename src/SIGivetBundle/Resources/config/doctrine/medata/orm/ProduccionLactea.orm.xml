@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ProduccionLactea" table="produccion_lactea">
+    <indexes>
+      <index name="r59_fk" columns="id_unidad"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="produccion_lactea_pk" columns="id_produccion_lactea"/>
+    </unique-constraints>
+    <id name="idProduccionLactea" type="integer" column="id_produccion_lactea">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreProduccionLactea" type="string" column="nombre_produccion_lactea" length="100" nullable="false"/>
+    <field name="estadoProduccionLactea" type="boolean" column="estado_produccion_lactea" nullable="false"/>
+    <many-to-one field="idUnidad" target-entity="UnidadTiempo">
+      <join-columns>
+        <join-column name="id_unidad" referenced-column-name="id_unidad"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idAnimal" target-entity="Animal" inversed-by="idProduccionLactea">
+      <join-table name="produccion_lactea_animal">
+        <join-columns>
+          <join-column name="id_produccion_lactea" referenced-column-name="id_produccion_lactea"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_animal" referenced-column-name="id_animal"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

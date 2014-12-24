@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Vereda" table="vereda">
+    <indexes>
+      <index name="IDX_896529F3798C152C" columns="gid_municipio"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="vereda_pk" columns="id_vereda"/>
+    </unique-constraints>
+    <id name="idVereda" type="integer" column="id_vereda">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreVereda" type="string" column="nombre_vereda" length="50" nullable="false"/>
+    <field name="estadoVereda" type="boolean" column="estado_vereda" nullable="false"/>
+    <many-to-one field="gidMunicipio" target-entity="Municipio">
+      <join-columns>
+        <join-column name="gid_municipio" referenced-column-name="gid"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

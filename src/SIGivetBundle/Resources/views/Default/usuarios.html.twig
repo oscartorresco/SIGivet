@@ -1,0 +1,169 @@
+{% extends 'SIGivetBundle::menu.html.twig' %}
+{%  block title %}
+SIGivet
+{% endblock %}
+
+{% block miga %}
+<style type="text/css">
+    #buscar{
+        display: none;
+    }
+</style>
+<ul class="breadcrumb trim">
+	<li><a href="">Inicio</a> <span class="divider">/</span></li>
+	<li class="active">Usuarios</li>
+</ul>
+{% endblock %}
+
+{% block contenido %}
+<div style="background-color:white" class="well trim">
+    <div class="row">
+        <div style="background-color:white"class="span3 well">
+         <form class="form" action="{{ path('si_givet_usuario') }}" method="post">
+            <div class="row margen">
+                <h3 class="align-center"><strong>Registrar Usuario</strong></h3>
+            </div>
+            <div class="row">
+                <div class="span4">
+                 {% if mensaje is defined %}
+                    {% if tipo_mensaje == 0 %}
+                    <span style="width:200px" class="label label-success"><small class="white">{{ mensaje }}</small></span>
+                    {% endif %}
+                    {% if tipo_mensaje == 1 %}
+                    <span style="width:200px" class="label label-important"><small class="white">{{ mensaje }}</small></span>
+                    {% endif %}
+                 {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4">
+                    <strong class="">Nombre*</strong>
+                </div>
+                <div class="span4">
+                    <input type="text" id="nombreUsuario"  name="nombreUsuario" placeholder="Nombre" required="required">
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4">
+                    <strong>Correo electrónico*</strong>
+                </div>
+                <div class="span4">
+                    <input type="text" name="correoUsuario" required="required"placeholder="Correo">
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4">
+                    <strong class="">Rol*</strong>
+                </div>
+                <div class="span4">
+                    <select style="width:206px" name="rolUsuario" required="required">
+                        <option value="">Seleccionar</option>
+                        <option value="0">Administrador</option>
+                        <option value="1">Estudiante</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4">
+                    <strong class="">Contraseña*</strong>
+                </div>
+                <div class="span4">
+                    <input type="password" name="contrasenaUsuario" required="required" placeholder="Contraseña">
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4">
+                    <strong class="">Repetir contraseña*</strong>
+                </div>
+                <div class="span4">
+                    <input type="password" name="rpContrasena" required="required" placeholder="Repetir contraseña">
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4"><button type="submit" ><i class="fa fa-floppy-o"></i> Guardar</button></div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <label class="text-info"><small>(*) campos obligatorios</small></label>
+                </div>
+            </div>
+          </form>
+        </div>
+        <div class="span9">
+        <div class="row">
+            <div class="span3">
+                <button id="buscarUsuario"  data-toggle="modal" type="submit"><i class="fa fa-search"></i></i> Buscar</button>
+            </div>
+        </div>
+        <div id="buscar" class="row">
+            <div class="span3">
+                <input type="text" id="buscarUsuario"  onkeypress="return letras(event);" name="buscarUsuario" placeholder="Nombre Usuario" onkeyup="paginacion()"/> 
+            </div>
+        </div>
+            <table class="table table-bordered">
+                <tr>
+                    <th><strong> Usuario </strong></th>
+                    <th><strong> Rol </strong></th>
+                    <th><strong> Correo electrónico </strong></th>
+                    <th><strong> Opciones</strong></th>
+                </tr>
+                <tbody class="tabla" id="tabla">
+                <tr  style="cursor:pointer;">
+                    <td id=""></td>
+                    <td id=""></td>
+                    <td id=""></td>
+                    <td id=""></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="pagination pagination-centered">
+            <ul class="pager">
+                <li class="lista previous" value="-1"><a href="#"></a></li>
+                <li class="lista next" value="-2"><a href="#"></a></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<a id="show-toast-button"  data-toggle="modal" href="#myModal" class="btn btn-success pull-right"><i class="fa fa-plus-square"></i> Editar Usuario</a>
+<div id="myModal" class="modal hide fade">
+    <div class="modal-header well">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 id="myModalLabel" class="align-center"><strong> EDITAR USUARIO </strong></h3>
+    </div>
+    <div class="modal-body">
+        <form class="form" action="" method="post">
+            <div class="row">
+                <div class="span3">
+                    <label><strong>Nombre*</strong></label>
+                </div>
+                <div>
+                    <input type="text" name="nombreUsuarioEdit" required="required" placeholder="Nombre">
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <label><strong>Contraseña*</strong></label>
+                </div>
+                <div>
+                    <input type="password" name="contrasenaUsuarioEdit" required="required" placeholder="Contraseña">
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <label><strong >Repetir contraseña*</strong></label>
+                </div>
+                <div>
+                    <input type="password" name="rpContrasenaEdit"required="required" placeholder="Contraseña">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success">Editar</button>
+                <button class="btn" data-dismiss="modal">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+  
+

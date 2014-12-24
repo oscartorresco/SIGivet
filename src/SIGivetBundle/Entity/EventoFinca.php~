@@ -1,0 +1,103 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EventoFinca
+ *
+ * @ORM\Table(name="evento_finca", indexes={@ORM\Index(name="r41_fk", columns={"id_enfermedad"}), @ORM\Index(name="r6_fk", columns={"id_finca"})})
+ * @ORM\Entity
+ */
+class EventoFinca
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_evento", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idEvento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="producto", type="string", length=100, nullable=true)
+     */
+    private $producto;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="aplicado_a", type="integer", nullable=false)
+     */
+    private $aplicadoA;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="aguja_desechable", type="boolean", nullable=false)
+     */
+    private $agujaDesechable;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="vacunador_evento", type="integer", nullable=false)
+     */
+    private $vacunadorEvento;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_vacuna", type="date", nullable=true)
+     */
+    private $fechaVacuna;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tipo_tratamiento", type="integer", nullable=true)
+     */
+    private $tipoTratamiento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="detalle_tratamiento", type="string", length=1024, nullable=true)
+     */
+    private $detalleTratamiento;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="frecuencia_desparasitacion", type="integer", nullable=true)
+     */
+    private $frecuenciaDesparasitacion;
+
+    /**
+     * @var \Enfermedad
+     *
+     * @ORM\ManyToOne(targetEntity="Enfermedad")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_enfermedad", referencedColumnName="id_enfermedad")
+     * })
+     */
+    private $idEnfermedad;
+
+    /**
+     * @var \Finca
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Finca")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_finca", referencedColumnName="id_finca")
+     * })
+     */
+    private $idFinca;
+
+
+}

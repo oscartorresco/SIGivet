@@ -1,0 +1,57 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Proyecto
+ *
+ * @ORM\Table(name="proyecto", uniqueConstraints={@ORM\UniqueConstraint(name="proyecto_pk", columns={"id_proyecto"})}, indexes={@ORM\Index(name="r51_fk", columns={"id_tipo_proyecto"})})
+ * @ORM\Entity
+ */
+class Proyecto
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_proyecto", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="proyecto_id_proyecto_seq", allocationSize=1, initialValue=1)
+     */
+    private $idProyecto;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_proyecto", type="date", nullable=false)
+     */
+    private $fechaProyecto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="objetivo_proyecto", type="string", length=1024, nullable=false)
+     */
+    private $objetivoProyecto;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estado_proyecto", type="boolean", nullable=false)
+     */
+    private $estadoProyecto;
+
+    /**
+     * @var \TipoProyecto
+     *
+     * @ORM\ManyToOne(targetEntity="TipoProyecto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_tipo_proyecto", referencedColumnName="id_tipo_proyecto")
+     * })
+     */
+    private $idTipoProyecto;
+
+
+}

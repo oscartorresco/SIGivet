@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Provincia" table="provincia">
+    <id name="gid" type="integer" column="gid">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="idProv" type="integer" column="id_prov" nullable="true"/>
+    <field name="nombrProv" type="text" column="nombr_prov" nullable="true"/>
+  </entity>
+</doctrine-mapping>

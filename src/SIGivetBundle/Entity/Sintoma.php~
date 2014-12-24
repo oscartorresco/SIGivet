@@ -1,0 +1,78 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sintoma
+ *
+ * @ORM\Table(name="sintoma")
+ * @ORM\Entity
+ */
+class Sintoma
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_sintoma", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="sintoma_id_sintoma_seq", allocationSize=1, initialValue=1)
+     */
+    private $idSintoma;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_sintoma", type="string", length=100, nullable=false)
+     */
+    private $nombreSintoma;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estado_sintoma", type="boolean", nullable=false)
+     */
+    private $estadoSintoma;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Animal", inversedBy="idSintoma")
+     * @ORM\JoinTable(name="aborto_animal",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_sintoma", referencedColumnName="id_sintoma")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_animal", referencedColumnName="id_animal")
+     *   }
+     * )
+     */
+    private $idAnimal;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Estudio", inversedBy="idSintoma")
+     * @ORM\JoinTable(name="presencia_sintoma",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_sintoma", referencedColumnName="id_sintoma")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_estudio", referencedColumnName="id_estudio")
+     *   }
+     * )
+     */
+    private $idEstudio;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idAnimal = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idEstudio = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

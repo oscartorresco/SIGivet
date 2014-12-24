@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Regla" table="regla">
+    <indexes>
+      <index name="r62_fk" columns="id_analisis"/>
+    </indexes>
+    <id name="idRegla" type="integer" column="id_regla">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="confianza" type="decimal" column="confianza" precision="10" scale="0" nullable="false"/>
+    <field name="soporte" type="decimal" column="soporte" precision="10" scale="0" nullable="false"/>
+    <field name="lift" type="decimal" column="lift" precision="10" scale="0" nullable="false"/>
+    <field name="estadoRegla" type="boolean" column="estado_regla" nullable="false"/>
+    <many-to-one field="idAnalisis" target-entity="Analisis">
+      <join-columns>
+        <join-column name="id_analisis" referenced-column-name="id_analisis"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idVariable" target-entity="Variable" mapped-by="idRegla"/>
+  </entity>
+</doctrine-mapping>

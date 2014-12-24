@@ -1,0 +1,62 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ResultadoAnimal
+ *
+ * @ORM\Table(name="resultado_animal", indexes={@ORM\Index(name="r32_fk", columns={"id_estudio"}), @ORM\Index(name="r31_fk", columns={"id_animal"})})
+ * @ORM\Entity
+ */
+class ResultadoAnimal
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cualitativo", type="integer", nullable=false)
+     */
+    private $cualitativo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cuantitativo", type="decimal", precision=10, scale=0, nullable=true)
+     */
+    private $cuantitativo;
+
+    /**
+     * @var \Animal
+     *
+     * @ORM\ManyToOne(targetEntity="Animal")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_animal", referencedColumnName="id_animal")
+     * })
+     */
+    private $idAnimal;
+
+    /**
+     * @var \Estudio
+     *
+     * @ORM\ManyToOne(targetEntity="Estudio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_estudio", referencedColumnName="id_estudio")
+     * })
+     */
+    private $idEstudio;
+
+    /**
+     * @var \Variable
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Variable")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_variable", referencedColumnName="id_variable")
+     * })
+     */
+    private $idVariable;
+
+
+}

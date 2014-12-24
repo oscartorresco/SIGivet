@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ResultadoAnimal" table="resultado_animal">
+    <indexes>
+      <index name="r32_fk" columns="id_estudio"/>
+      <index name="r31_fk" columns="id_animal"/>
+    </indexes>
+    <id name="idVariable" association-key="true"/>
+    <field name="cualitativo" type="integer" column="cualitativo" nullable="false"/>
+    <field name="cuantitativo" type="decimal" column="cuantitativo" precision="10" scale="0" nullable="true"/>
+    <one-to-one field="idVariable" target-entity="Variable">
+      <join-columns>
+        <join-column name="id_variable" referenced-column-name="id_variable"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="idEstudio" target-entity="Estudio">
+      <join-columns>
+        <join-column name="id_estudio" referenced-column-name="id_estudio"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idAnimal" target-entity="Animal">
+      <join-columns>
+        <join-column name="id_animal" referenced-column-name="id_animal"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

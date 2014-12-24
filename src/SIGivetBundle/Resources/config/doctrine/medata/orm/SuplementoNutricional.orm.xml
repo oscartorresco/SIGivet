@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SuplementoNutricional" table="suplemento_nutricional">
+    <unique-constraints>
+      <unique-constraint name="suplemento_nutricional_pk" columns="id_suplemento_nutricional"/>
+    </unique-constraints>
+    <id name="idSuplementoNutricional" type="integer" column="id_suplemento_nutricional">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="tipoSuplementoNutricional" type="string" column="tipo_suplemento_nutricional" length="100" nullable="false"/>
+    <field name="estadoSuplemento" type="boolean" column="estado_suplemento" nullable="false"/>
+    <many-to-many field="idEstudio" target-entity="Estudio" inversed-by="idSuplementoNutricional">
+      <join-table name="suplemento_suministrado">
+        <join-columns>
+          <join-column name="id_suplemento_nutricional" referenced-column-name="id_suplemento_nutricional"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_estudio" referenced-column-name="id_estudio"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

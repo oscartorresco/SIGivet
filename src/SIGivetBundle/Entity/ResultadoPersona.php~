@@ -1,0 +1,63 @@
+<?php
+
+namespace SIGivetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ResultadoPersona
+ *
+ * @ORM\Table(name="resultado_persona", uniqueConstraints={@ORM\UniqueConstraint(name="resultado_persona_pk", columns={"id_persona", "id_estudio", "id_variable"})}, indexes={@ORM\Index(name="r48_fk", columns={"id_estudio"}), @ORM\Index(name="r60_fk", columns={"id_variable"})})
+ * @ORM\Entity
+ */
+class ResultadoPersona
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_persona", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idPersona;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="resultado_cualitativo", type="integer", nullable=true)
+     */
+    private $resultadoCualitativo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resultado_cuantitativo", type="decimal", precision=10, scale=0, nullable=true)
+     */
+    private $resultadoCuantitativo;
+
+    /**
+     * @var \Estudio
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Estudio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_estudio", referencedColumnName="id_estudio")
+     * })
+     */
+    private $idEstudio;
+
+    /**
+     * @var \Variable
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Variable")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_variable", referencedColumnName="id_variable")
+     * })
+     */
+    private $idVariable;
+
+
+}

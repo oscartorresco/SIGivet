@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Sintoma" table="sintoma">
+    <id name="idSintoma" type="integer" column="id_sintoma">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreSintoma" type="string" column="nombre_sintoma" length="100" nullable="false"/>
+    <field name="estadoSintoma" type="boolean" column="estado_sintoma" nullable="false"/>
+    <many-to-many field="idEstudio" target-entity="Estudio" inversed-by="idSintoma">
+      <join-table name="presencia_sintoma">
+        <join-columns>
+          <join-column name="id_sintoma" referenced-column-name="id_sintoma"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_estudio" referenced-column-name="id_estudio"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="idAnimal" target-entity="Animal" inversed-by="idSintoma">
+      <join-table name="aborto_animal">
+        <join-columns>
+          <join-column name="id_sintoma" referenced-column-name="id_sintoma"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_animal" referenced-column-name="id_animal"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>
